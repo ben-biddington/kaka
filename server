@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Starting server"
+
+npx ts-node-dev ./src/adapters/server/src/server.ts

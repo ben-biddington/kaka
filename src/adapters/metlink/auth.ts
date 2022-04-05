@@ -1,0 +1,1 @@
+export const apiGatewayKey = "iuoMNXQjzC1PjijgMjKkHhYWPb4ZES2UpaYfgsd0";
