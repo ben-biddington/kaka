@@ -13,7 +13,7 @@ export class DefaultInternet implements Internet {
       method: request.verb as Method, // dumb
       url: request.url,
       headers: request.headers,
-      timeout: 1000,
+      timeout: 5000,
       validateStatus: () => true,
     };
 

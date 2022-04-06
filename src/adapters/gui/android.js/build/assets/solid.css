@@ -1,0 +1,158 @@
+body {
+  overflow-y: scroll; /* Show vertical scrollbar */
+}
+
+a.icon { color: black }
+a.icon:hover { color: red }
+
+li.news:hover { background-color: #f0f0f0; opacity:100% }
+
+span.hn { color: #ff6600 }
+span.lobsters { color: darkred }
+span.youtube { color: red }
+
+#info { }
+
+.loaded {  
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+/* body table {font-size: 20px !important;} */
+#news { border: 0px solid silver; padding:1px; font-size: 20px; }
+.news-item-row { 
+  transition: all 1s;
+
+  background-color: rgb(218, 224, 229, 0.2); 
+  
+  /* transition: visibility 0s linear 0.7s, opacity 0.7s ease-in-out; */
+
+   /* https://mdbootstrap.com/docs/standard/tools/design/gradients/ */
+  /* fallback for old browsers */
+  background: #d0d0d0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, rgb(218, 224, 229, 0.2), rgba(224, 224, 224, 0.0));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgb(218, 224, 229, 0.2), rgba(117, 67, 67, 0.0));
+}
+
+.news-item-row:hover { 
+  /* background-color: rgb(218, 224, 229, 0.2); transition: visibility 2s linear 0.7s, opacity 0.7s ease-in-out; */
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgb(218, 224, 229, 0.6), rgba(117, 67, 67, 0.0));
+}
+
+#news tr.news-item-row td { border-top: 1px solid #f0f0f0; }
+
+#news .news-title { font-size: 1.5em; }
+#news .news-controls { background-color: inherit; border: 0; border-bottom-color: #f0f0f0; border-bottom-width: 1; border-style: solid; }
+#news .news-controls li { border: 0; background-color: inherit; }
+#news .news-controls li.icon { min-width: 50; }
+.icon { width:16px; height: 16px; }
+#news .source { font-size: 1.1em }
+#news .age { min-width: 100; display: inline-block; text-align: center; margin-top: 2px}
+#marine-weather .card { text-align: center; background-color: rgb(218, 224, 229, 0.2); }
+.toolbar ul { float: right }
+.toolbar li { border:0 }
+.toolbar .list-group-item .label { margin-left: 5px;  }
+#bookmarks { transition: display 0s linear 0.7s, opacity 0.7s ease-in-out;}
+#bookmarks table { background-color: rgb(218, 224, 229, 0.2); transition: visibility 0s linear 0.7s, opacity 0.7s ease-in-out;}
+
+.rnz-logo-svg { width: 50; height: 20 }
+.rnz-koru-svg { width: 50; height: 20 }
+
+#menu { 
+  text-align: right;
+  padding: 5px; 
+  border-top:1px solid silver;
+  /* https://mdbootstrap.com/docs/standard/tools/design/gradients/ */
+  /* fallback for old browsers */
+  background: #d0d0d0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, rgb(218, 224, 229, 0.7), rgba(224, 224, 224, 0.0));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgb(218, 224, 229, 0.7), rgba(117, 67, 67, 0.0))
+}
+
+.recessed {
+  /* https://mdbootstrap.com/docs/standard/tools/design/gradients/ */
+  /* fallback for old browsers */
+  background: #d0d0d0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, rgb(218, 224, 229, 0.7), rgba(224, 224, 224, 0.0));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom, rgb(218, 224, 229, 0.7), rgba(117, 67, 67, 0.0))
+}
+
+.recessed-reversed {
+  /* https://mdbootstrap.com/docs/standard/tools/design/gradients/ */
+  /* fallback for old browsers */
+  background: #d0d0d0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to top, rgb(218, 224, 229, 0.7), rgba(224, 224, 224, 0.0));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, rgb(218, 224, 229, 0.7), rgba(117, 67, 67, 0.0))
+}
+
+.placeholder { opacity: .10; color: #f0f0f0; }
+
+.blocked { background-color:silver; opacity: 30% }
+
+.list-group li {
+  display: inline-table;
+}
+
+.hidden { display: none; }
+
+.visible {
+  animation: subtleFade 2s;
+  animation-fill-mode: both;
+} 
+
+@keyframes subtleFade {
+  0%   { opacity:0 }
+  100% { opacity:100 }
+}
+
+.host .host-name { border-top-right-radius: 0; border-bottom-right-radius: 0}
+.host .host-block { border-top-left-radius: 0; border-bottom-left-radius: 0; background-color: darkred; }
+.host .host-block :hover { background-color: red; }
+
+.deleted-message-x { 
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;}
+
+ @-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+
+ @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+
+ .fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+ }
+
+ .weather-icon { filter: saturate(0%); display: inline-block; }
+ .today { filter: saturate(100%); }
+ .weather-icon span { width: 32px }
+ .weather-icon:hover { filter: saturate(100%) }
+ 
+.water-temp li {
+  background: linear-gradient(to top, #f0f0f0, white) 
+}

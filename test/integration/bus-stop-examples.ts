@@ -21,6 +21,6 @@ describe("Listing bus stop info", () => {
       lat: -41.267979,
       long: 174.760231,
     });
-    expect(busStop.routes).to.eql(["140", "6730", "6740", "6850", "7430"]);
+    expect(busStop.routeIds).to.eql(["140", "6730", "6740", "6850", "7430"]);
   });
 });

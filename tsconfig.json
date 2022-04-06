@@ -7,13 +7,15 @@
         "core/*": [ "src/core/*" ],
         "ports/*": [ "src/ports/*" ]
       },
+      "jsx": "preserve",
       "outDir": "./dist",
       "sourceMap": false,
       "declaration": false,
       "module": "commonJs",
       "moduleResolution": "node",
       "importHelpers": true,
-      "target": "ES5"
+      "target": "ES5",
+      "allowJs": true,
     },
   "include": [ "src/**/*", "test/**/*"  ],
   "exclude": [ "node_modules" ]

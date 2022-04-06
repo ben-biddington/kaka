@@ -2,6 +2,8 @@ import { Internet } from "ports/internet";
 import { apiGatewayKey } from "adapters/metlink/auth";
 import { Log } from "ports/log";
 import { BusStop } from "core/bus-stop";
+import { Stops } from "ports/stops";
+import { DefaultInternet } from "adapters/internet/default-internet";
 
 export type Ports = {
   internet: Internet;
@@ -23,7 +25,6 @@ export const stop = async (
     verb: "get",
     url: `${baseUrl}/api/v1/stops/${stopId}`,
     headers: {
-      "X-Author": "ben.biddington@gmail.com",
       "x-api-key": apiGatewayKey,
     },
   };
@@ -42,7 +43,7 @@ export const stop = async (
       lat: body.stop_lat,
       long: body.stop_lon,
     },
-    routes: body.route_ids,
+    routeIds: body.route_ids,
   };
 
   return result;
@@ -125,3 +126,24 @@ export const stop = async (
 
   log?.debug(`[reply] ${JSON.stringify(reply, null, 2)}`);
 };
+
+export class NetworkStops implements Stops {
+  private log: Log;
+  private baseUrl: string;
+
+  constructor(log: Log, baseUrl: string) {
+    this.log = log;
+    this.baseUrl = baseUrl;
+  }
+
+  list = (ids: string[]) => {
+    return Promise.all(
+      ids.map((stopId) =>
+        stop(
+          { internet: new DefaultInternet(this.log) },
+          { baseUrl: this.baseUrl, stopId }
+        )
+      )
+    );
+  };
+}

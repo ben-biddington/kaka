@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kākā</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../assets/icon/favicon.ico"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../assets/ui.solid.bundle.js" type="text/javascript"></script>
+    <script src="../assets/adapters.bundle.js"></script>
+    <!-- <link rel="stylesheet" href="../assets/bootstrap.min.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../assets/solid.css" />
+    <!-- <script
+      type="text/javascript"
+      src="../node_modules/androidjs/lib/androidjs.js"
+    ></script> -->
+  </head>
+
+  <script type="text/javascript" src="../assets/script.js"></script>
+
+  <style type="text/css">
+    html,
+    body {
+      height: 100%;
+    }
+
+    .jumbotron {
+      background: #fff;
+    }
+
+    #news {
+      font-size: 10px;
+      width: 100%;
+    }
+  </style>
+
+  <body></body>
+
+  <script type="text/javascript">
+    const toggles = new adapters.QueryStringToggles(document.location.search);
+    var settings = new adapters.QueryStringSettings(document.location.search);
+    // var view = new real.UIEvents();
+
+    // const isRunningOnPhone = toggles.get("use-local") !== true;
+
+    // const addScript = (attr) => {
+    //   return new Promise((accept, reject) => {
+    //     const scriptTag = document.createElement("script");
+
+    //     scriptTag.onload = accept();
+    //     scriptTag.onerror = reject();
+
+    //     Object.keys(attr).forEach((key) => {
+    //       scriptTag.setAttribute(key, attr[key]);
+    //     });
+
+    //     document.body.appendChild(scriptTag);
+    //   });
+    // };
+
+    // const opts =
+    //   isRunningOnPhone === false
+    //     ? {
+    //         hackerNewsBaseUrl: "http://localhost:8080/hn",
+    //         lobstersBaseUrl: "http://localhost:8080/lobsters/hottest",
+    //         previewServiceUrl: "http://localhost:8080/preview",
+    //         window,
+    //       }
+    //     : { window };
+
+    // var application = init.createApplication(opts);
+
+    // application.pollEvery(
+    //   parseInt(settings.get("polling-frequency", "600000"))
+    // );
+
+    const div = document.createElement("div");
+    div.setAttribute("id", "application");
+    document.body.appendChild(div);
+
+    // if (isRunningOnPhone) {
+    //   addScript({ src: "../node_modules/androidjs/lib/androidjs.js" }).then(
+    //     () => {}
+    //   );
+    // } else {
+    //   window.app = {
+    //     message: 'Running outside phone so "app" is not available'
+    //   }
+    // }
+
+    const solid = window["ui.solid"];
+
+    const logLevel = toggles.get('debug') ? adapters.LogLevel.Debug: adapters.LogLevel.Info; 
+    
+    adapters
+      .create({ baseUrl: undefined, logLevel })
+      .then((application) =>
+        solid.mount(document.getElementById("application"), application)
+      );
+  </script>
+</html>

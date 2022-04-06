@@ -24,7 +24,6 @@ export const realTime = async (
     verb: "get",
     url: `${baseUrl}/v1/stop-predictions?stop_id=${stopId}`,
     headers: {
-      "X-Author": "ben.biddington@gmail.com",
       "x-api-key": apiGatewayKey,
     },
   };
